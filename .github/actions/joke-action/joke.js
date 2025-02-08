@@ -1,0 +1,19 @@
+const request = require('request');
+
+/** @type {import('request').CoreOptions} */
+const options = {
+  method: 'GET',
+  uri: 'https://icanhazdadjoke.com/',
+  headers: {
+    Accept: 'application/json',
+    'User-Agent': 'Writting JavaScript action Github Skills course.',
+  },
+  json: true,
+};
+
+async function getJoke() {
+  const res = await request(options);
+  return res.joke;
+}
+
+module.exports = getJoke;
